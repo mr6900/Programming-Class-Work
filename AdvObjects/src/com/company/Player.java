@@ -11,6 +11,7 @@ public class Player {
     private int attack;
     private int playerLevel;
     private int healthPotions;
+    Weapons weapon;
 
     public int getXp() {
         return xp;
@@ -25,11 +26,12 @@ public class Player {
     //in the case that they have the same name.
     public Player(){
         rand = new Random();
-        this.playerLevel = 1;
+        this.playerLevel = 2;
         health = 50;
         defense = 10;
         attack = 10;
         healthPotions=0;
+        weapon = new Weapons();
     }
 
     //getters (allow the programmers to see the values of the instance variables
@@ -42,7 +44,7 @@ public class Player {
     }
 
     public int getAttack() {
-        return attack;
+        return attack + weapon.getDamage();
     }
 
     public int getPlayerLevel() {
@@ -65,6 +67,7 @@ public class Player {
                 System.out.println("level:   " + getPlayerLevel());
                 System.out.println("health:  " + getHealth());
                 System.out.println("attack:  " + getAttack());
+                System.out.println("Weapons attack: " + weapon.getDamage());
                 System.out.println("defense: " + getDefense());
                 System.out.println("potions: " + healthPotions);
                 System.out.println("enemy stats:");
@@ -78,7 +81,7 @@ public class Player {
     //this is the function that allows the player to take damage
     //returns true if player is alive
     public boolean takeDamage(Enemy enemy){
-        int damage = (rand.nextInt(enemy.getAttack())+enemy.getAttack()) - defense;
+        int damage = (rand.nextInt(enemy.getAttack())+enemy.getAttack()) - getDefense();
         if (damage<1){
             damage = 1;
         }
@@ -119,5 +122,9 @@ public class Player {
             attack = attack +rand.nextInt(7)+1;
             defense = defense + rand.nextInt(7)+1;
         }
+    }
+
+    public void setWeapon(Weapons weapon) {
+        this.weapon = weapon;
     }
 }
