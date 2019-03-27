@@ -45,13 +45,14 @@ public class Main {
 
 
 
-                    if (checkUser(logUser, username, false) == -1 || logPass.equals(password.get(unIndex))) {
+                    if (checkUser(logUser, username, false) == -1 ) {
                         System.out.println("Username or Password is Incorrect!!");
                     } else if (unIndex != -1) {
                         if (logPass.equals(password.get(unIndex))) {
-                            System.out.println("Username or Password is Incorrect!!");
+                            System.out.println("Welcome" + logUser);
+                            System.exit(0);
                         } else {
-                            System.out.println("Welcome");
+                            System.out.println("Username or Password is Incorrect!!");
                         }
                     }
                 }
