@@ -1,0 +1,37 @@
+Gradebook Test cases		O = Output.     Succesful - action completed successfully		
+---------------------		I = input.	Fail - There was an error with the command, operation not completed
+
+(Here we are checking to make sure there is actually any sections created)
+I:change section
+O:Enter Section Name.
+I:AM
+O:There is no section created(fails)
+------------------------------------------------------------
+(We need to add a section now)
+I:Add section
+O:Enter a section name
+I:AM
+O:action completed successfully
+------------------------------------------------------------
+(Now we have a section created we want to also make sure that there is at least 2 sections
+crated in the programe)
+I:change section
+O:Current Section: AM
+O:Enter section name:
+I:PM
+O:There was an error with the command, operation not completed
+------------------------------------------------------------
+(We need to add a section now)
+I:Add section
+O:Enter a section name
+I:PM
+O:action completed successfully
+------------------------------------------------------------
+(After there was a 2nd section created the function should
+actually work at this point)
+I:change section
+O:Current Section: AM
+O:Enter section you want to change to:
+I:PM
+O:action completed successfully
+------------------------------------------------------------
