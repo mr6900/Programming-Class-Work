@@ -1,6 +1,9 @@
 Gradebook Test cases		O = Output.     Succesful - action completed successfully		
 ---------------------		I = input.	Fail - There was an error with the command, operation not completed
 
+----------------------------------
+All Test Cases For: Change Section
+----------------------------------
 (Here we are checking to make sure there is actually any sections created)
 I:change section
 O:Enter Section Name.
@@ -35,3 +38,55 @@ O:Enter section you want to change to:
 I:PM
 O:action completed successfully
 ------------------------------------------------------------
+
+--------------------------------
+All Test Cases For: Add Section
+--------------------------------
+(We wanna make sure that we can actually add a section)
+I:Add Section.
+O:Enter a secton name:
+I:AM
+O:action completed successfully
+O:Current Section is AM
+------------------------------------------------------------
+(In this case we want to say that there has been already been 6
+sections created)
+I: Add section.
+O: Enter a section name
+I: PM
+O: Sorry section cant be added there is alreadt 6 sections created
+O:There was an error with the command, operation not completed
+------------------------------------------------------------
+(We woulsd also need to make sure they arn't any section with the same name)
+I:Add section
+O:Enter a section name
+I:PM
+O:There was an error with the command, operation not completed
+------------------------------------------------------------
+
+--------------------------------
+All Test Cases For: Add Students
+--------------------------------
+(we want to make sure when we add a student there is a section Created/selected)
+I: Add student
+O:Enter student first name:
+I:Matt
+O:Enter student last name:
+I:Reason
+O:Enter student username:
+Matthew0017
+O:Student Matt has been added to AM
+O:action completed successfully
+------------------------------------------------------------
+(We also want to make sure that it checks if the username has not been taken already)
+I: Add student
+O:Enter student first name:
+I:Bob
+O:Enter student last name:
+I:Jr.
+O:Enter student username:
+I:Matthew0017
+O:There was an error with the command, operation not completed
+------------------------------------------------------------
+
+
