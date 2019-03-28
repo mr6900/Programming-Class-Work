@@ -114,7 +114,7 @@ O: Enter a assignments
 I: AdvArray's
 O: Overall Score 87%
 O: action completed successfully
-
+------------------------------------------------------------
 
 ----------------------------------------------
 All Test Cases For: Add Assignment to student
@@ -134,5 +134,33 @@ O: Enter student name
 I: Matt
 O: student not found
 O: There was an error with the command, operation not completed
+------------------------------------------------------------
+(Here we are making the test case for the situation where the student already has that assignment)
+I: Add Assignment
+O: Enter student name
+I: Matt
+O: Enter assignment name
+I: AdvArray's
+O: Student already has this assignment
+O: There was an error with the command, operation not completed
+------------------------------------------------------------
+(If there is no section then i theory you cant add an assignment because there would be no student)
+I: Add assignment to student
+O: You have yet to create a section
+O:There was an error with the command, operation not completed
+------------------------------------------------------------
+
+---------------------------------------------
+All Test Cases For: Add Assignment to section
+---------------------------------------------
+(so now we want to add a assignment to all student's by adding it to the section
+So in this case it will work)
+I: Add assignment to section
+O: Enter assignment name:
+I: AdvObject's
+O: Assignment has been added to AM section
+O: action completed successfully
+------------------------------------------------------------
+
 
 
