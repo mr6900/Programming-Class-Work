@@ -5,38 +5,38 @@ Gradebook Test cases		O = Output.     Succesful - action completed successfully
 All Test Cases For: Change Section
 ----------------------------------
 (Here we are checking to make sure there is actually any sections created)
-I:change section
-O:Enter Section Name.
-I:AM
-O:There is no section created(fails)
+I: change section
+O: Enter Section Name.
+I: AM
+O: There is no section created(fails)
 ------------------------------------------------------------
 (We need to add a section now)
-I:Add section
-O:Enter a section name
-I:AM
-O:action completed successfully
+I: Add section
+O: Enter a section name
+I: AM
+O: action completed successfully
 ------------------------------------------------------------
 (Now we have a section created we want to also make sure that there is at least 2 sections
 crated in the programe)
-I:change section
-O:Current Section: AM
-O:Enter section name:
-I:PM
-O:There was an error with the command, operation not completed
+I: change section
+O: Current Section: AM
+O: Enter section name:
+I: PM
+O: There was an error with the command, operation not completed
 ------------------------------------------------------------
 (We need to add a section now)
-I:Add section
-O:Enter a section name
-I:PM
-O:action completed successfully
+I: Add section
+O: Enter a section name
+I: PM
+O: action completed successfully
 ------------------------------------------------------------
 (After there was a 2nd section created the function should
 actually work at this point)
-I:change section
-O:Current Section: AM
-O:Enter section you want to change to:
-I:PM
-O:action completed successfully
+I: change section
+O: Current Section: AM
+O: Enter section you want to change to:
+I: PM
+O: action completed successfully
 ------------------------------------------------------------
 
 --------------------------------
@@ -44,10 +44,10 @@ All Test Cases For: Add Section
 --------------------------------
 (We wanna make sure that we can actually add a section)
 I:Add Section.
-O:Enter a secton name:
-I:AM
-O:action completed successfully
-O:Current Section is AM
+O: Enter a secton name:
+I: AM
+O: action completed successfully
+O: Current Section is AM
 ------------------------------------------------------------
 (In this case we want to say that there has been already been 6
 sections created)
@@ -55,13 +55,13 @@ I: Add section.
 O: Enter a section name
 I: PM
 O: Sorry section cant be added there is alreadt 6 sections created
-O:There was an error with the command, operation not completed
+O: There was an error with the command, operation not completed
 ------------------------------------------------------------
 (We woulsd also need to make sure they arn't any section with the same name)
-I:Add section
-O:Enter a section name
-I:PM
-O:There was an error with the command, operation not completed
+I: Add section
+O: Enter a section name
+I: PM
+O: There was an error with the command, operation not completed
 ------------------------------------------------------------
 
 --------------------------------
@@ -69,24 +69,70 @@ All Test Cases For: Add Students
 --------------------------------
 (we want to make sure when we add a student there is a section Created/selected)
 I: Add student
-O:Enter student first name:
-I:Matt
-O:Enter student last name:
-I:Reason
-O:Enter student username:
-Matthew0017
-O:Student Matt has been added to AM
-O:action completed successfully
+O: Enter student first name:
+I: Matt
+O: Enter student last name:
+I: Reason
+O: Enter student username:
+I: Matthew0017
+O: Student Matt has been added to AM
+O: action completed successfully
 ------------------------------------------------------------
 (We also want to make sure that it checks if the username has not been taken already)
 I: Add student
-O:Enter student first name:
-I:Bob
-O:Enter student last name:
-I:Jr.
-O:Enter student username:
-I:Matthew0017
-O:There was an error with the command, operation not completed
+O: Enter student first name:
+I: Bob
+O: Enter student last name:
+I: Jr.
+O: Enter student username:
+I: Matthew0017
+O: There was an error with the command, operation not completed
 ------------------------------------------------------------
+
+--------------------------------------
+All Test Cases For: Get Over All Score
+--------------------------------------
+(In this case we can say that we do have a student in the system but no assignment)
+I: Get Overall Score
+O: Enter student's name
+I: Matt
+O: No assignment found for this student
+O: There was an error with the command, operation not completed
+------------------------------------------------------------
+(Here we are gonna make the test case that when we enter a student that is not in the system)
+I: Get overall score
+O: Enter student's name
+I: Nick
+O: Student not found
+O: There was an error with the command, operation not completed
+------------------------------------------------------------
+(Now we have a student that is both in the system and has a assignment)
+I: get overall score
+O: Enter student name
+I: Matt
+O: Enter a assignments
+I: AdvArray's
+O: Overall Score 87%
+O: action completed successfully
+
+
+----------------------------------------------
+All Test Cases For: Add Assignment to student
+----------------------------------------------
+(here we are adding an assignmrnt and we already have a Student and Section)
+I: Add Assignment
+O: Enter student name
+I: Matt
+O: Enter assignment name
+I: AdvArray's
+O: Assignment added to Matt
+O: action completed successfully
+------------------------------------------------------------
+(Now let's say that we do not have a student in the system for this one aswell)
+I: Add Assignment
+O: Enter student name
+I: Matt
+O: student not found
+O: There was an error with the command, operation not completed
 
 
