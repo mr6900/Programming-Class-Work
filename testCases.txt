@@ -147,7 +147,7 @@ O: There was an error with the command, operation not completed
 (If there is no section then i theory you cant add an assignment because there would be no student)
 I: Add assignment to student
 O: You have yet to create a section
-O:There was an error with the command, operation not completed
+O: There was an error with the command, operation not completed
 ------------------------------------------------------------
 
 ---------------------------------------------
@@ -161,6 +161,173 @@ I: AdvObject's
 O: Assignment has been added to AM section
 O: action completed successfully
 ------------------------------------------------------------
+(In this case one of the students in the section already has assignment that they are trying to the section)
+I: Add assignment to section
+O: Enter assignment name:
+I: AdvArray's
+O: Student in this section already has this assignment
+O: There was an error with the command, operation not completed
+------------------------------------------------------------
+(In this case there is no section created yet)
+I: Add assignment to section
+O: There was an error with the command, operation not completed
+------------------------------------------------------------
+
+-----------------------------
+All Test Cases For: Set score
+-----------------------------
+(Here we are gonna say that everything inputed )
+I: Set Score
+O: Enter students name
+I: Matt
+O: Enter assignment name:
+I: AdvArray's
+O: Enter amount of points
+I: 10
+O: action completed successfully
+------------------------------------------------------------
+(In this case the student has not been found in the system)
+I: Set Score
+O: Enter students name
+I: Matt
+O: There was an error with the command, operation not completed
+------------------------------------------------------------
+(In this case there is no section created yet)
+I: Set Score
+O: There was an error with the command, operation not completed
+------------------------------------------------------------
+(For the last case of this function we are gonna test to see if said assignmrnt is a thing)
+I: Set score
+O: Enter students name
+I: Matt
+O: Enter assignmrnt
+I: BegArray
+O: There was an error with the command, operation not completed
+------------------------------------------------------------
+
+---------------------------------------------
+All Test Cases For: Get assignment precentage
+---------------------------------------------
+(For the fisrt case of this function we are gonna enter in vaild info to hopefully show that it works)
+I: Get assignment precentage
+O: Enter students name
+I: Matt
+O: Enter assignment
+I: AdvArray's
+O: Result from command: 67%
+O: action completed successfully
+------------------------------------------------------------
+(In this case we wanna make sure if a assignment that is not in the system was entered that it wouldn't
+give you a precentage)
+I: Get assignment precentage
+O: Enter students name
+I: Matt
+O: Enter assignment
+I: BegObject
+O: There was an error with the command, operation not completed
+------------------------------------------------------------
+(Now we wanna make sure when we enter a students name that it will make sure that the student
+has been assigned an assignment)
+I: Get assignment precentage
+O: Enter students name
+I: Matt
+O: This student does not have any any assigned assignment's
+O: There was an error with the command, operation not completed
+------------------------------------------------------------
+(Then with the last case we want to make sure when we enter a student's name that they are actually a vaild
+student in the system)
+I: Get assignment precentage
+O: Enter students name
+I: Bob
+O: There was an error with the command, operation not completed
+------------------------------------------------------------
+
+---------------------------------------------
+All Test Cases For: Get assignment score avg
+---------------------------------------------
+(In this case we want to make sure that we have a section created)
+I: Get assignment score avg
+O: There was an error with the command, operation not completed
+------------------------------------------------------------
+(Now we need to make sure that the assignment enterde has been actually assigned to a student in said section)
+I: Get assignment precentage
+O: Enter assignment name
+I: BegObject
+O: This assignment has not yet been assigned
+O: There was an error with the command, operation not completed
+------------------------------------------------------------
+(In this case everything should work)
+I: Get assignment precentage
+O: Enter assignment name
+I: AdvArray's
+O: Result from command: 67%
+------------------------------------------------------------
+
+------------------------------
+All Test Cases For: Mark Tardy
+------------------------------
+(Here all info is correct this case should come out true)
+I: Mark tardy
+O: Enter student username:
+I: Matthew0017
+O: 1 tardy mark has been added to Matthew0017
+------------------------------------------------------------
+(Here we wnat to make sure that the user name that was entered is valid)
+I: Mark tardy
+O: Enter student username:
+I: mr6900
+O: Username not found
+O: There was an error with the command, operation not completed
+------------------------------------------------------------
+
+-------------------------------
+All Test Cases For: Mark Absent
+-------------------------------
+(Here all info is correct this case should come out true)
+I: Mark Absent
+O: Enter student username:
+I: Matthew0017
+O: 1 Absent mark has been added to Matthew0017
+------------------------------------------------------------
+(Here we wnat to make sure that the user name that was entered is valid)
+I: Mark Absent
+O: Enter student username:
+I: mr6900
+O: Username not found
+O: There was an error with the command, operation not completed
+------------------------------------------------------------
 
 
+-------------------------------
+All Test Cases For: Get Tardy
+-------------------------------
+(Here everything should work in this funtion for these inputs)
+I: Get Tardy
+O: Enter student username
+I: Matthew0017
+O: Result from command: 1
+------------------------------------------------------------
+(Here we will make sure if they enter a username that if they are in the system)
+I: Get Tardy
+O: Enter student username
+I: mr6900
+O: Username not found
+O: There was an error with the command, operation not completed
+------------------------------------------------------------
 
+-------------------------------
+All Test Cases For: Get Absent
+-------------------------------
+(Here everything should work in this funtion for these inputs)
+I: Get Absent's
+O: Enter student username
+I: Matthew0017
+O: Result from command: 1
+------------------------------------------------------------
+(Here we will make sure if they enter a username that if they are in the system)
+I: Get Absent's
+O: Enter student username
+I: mr6900
+O: Username not found
+O: There was an error with the command, operation not completed
+------------------------------------------------------------
