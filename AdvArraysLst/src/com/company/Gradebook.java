@@ -1,43 +1,104 @@
 package com.company;
 
+import java.util.ArrayList;
+
 /**
- * Created by mr6900 on 2/21/2019.
+ * Created by dbaker on 2/15/2019.
  */
 public class Gradebook {
     //properties
-    //array of sections
-    //int numberOfSections
+    //list/array of sections
+    ArrayList<String> sections = new ArrayList<>();
+    //SectionName - String
+    String sectionName;
 
-    int currentSection;
 
-    /*changeSection(string sectionName); sets the currently active section
+    //methods
 
-    boolean AddStudent(String firstName, String lastName, string username, long phoneNumber); //creates a new student
 
-    double getOverallScore(String username) //returns overall score as a percentage for specified student
 
-    double getOverallScoreAvg(String sectionName) //returns overall score as a percentage for a section
+    //creates a new section if there are not already 6 sections
+    // and sectionName is not already used , also need to set the currentSection to be the new section
+    // Returns: true if it succeeds false if it fails.
+    public boolean addSection(String sectionName){
+        return false; //FIXME
+    }
+    //Creates a new student and adds the student to the currently active section
+    //returns: True if it succeeds, false if it fails(a student with the same username already exists or there are no sections)
+    public boolean addStudent(String firstName, String lastName, String username, long phoneNumber){
+        return false; //FIXME
+    }
 
-    boolean addAssignmentToStudent(String username, String assignmentName, int pointsPossible)
+    //returns overall score (total points earned for all assignments/ total points possible) as a percentage for specified student
+    //returns -1 if the student was not found or if the student did not have any assignments assigned or there are no sections.
+    public double getOverallScore(String username) {
+        return -1; //FIXME
+    }
+    //returns overall score as a percentage for the current section - (the average of each students overall score.)
+    //Each student should have the same weight even if they have different number of points possible
+    //IE: get each student's overall score as a percentage and calculate the average percentage for the students .
+    //do not count students with no assignments assigned in the average.
+    //returns -1 if there were no assignments in the section or there are no sections.
+    public double getOverallScoreAvg(){
+        return -1; //FIXME
+    }
 
-    boolean addAssignmentToSection(String assignmentName, int pointsPossible)
 
-    boolean setScore(String username, String assignmentName, int pointsEarned)
+    //creates a new assignment and adds it to the student specified by username.
+    //Returns true if it succeeds and false if the student is not found or the student already has an assignment with the
+    //same assignmentName or there are no sections
+    public boolean addAssignmentToStudent(String username, String assignmentName, int pointsPossible){
+        return false; //FIXME
+    }
 
-    double getAssignmentScorePercent(String username, String assignmentName) //returns score as a percentage for student in current section
+    //checks to make sure no student already has an assignment with the same assignment name first
+    //if there is no existing assignment it creates a new assignment and adds the assignment to all
+    // the students in the current section.
+    //returns: True if successful and false if at least one student has the same assignment name or there are no sections
+    public boolean addAssignmentToSection(String assignmentName, int pointsPossible){
+        return false;//FIXME
+    }
 
-    double getAssignmentScoreAvg(String assignmentName) //returns score as a percentage for current section
+    //sets the pointsEarned property for the student specified in the current section for the assignment specified
+    //returns: true if successful, false if the student is not found or the assignmentName is not found  or there are no sections.
+    public boolean setScore(String username, String assignmentName, int pointsEarned){
+        return false;//FIXME
+    }
 
-    boolean addSection(String sectionName)//creates a new section if there are not already 6 sections and sectionName isnt already used
+    //returns score on assignment specified as a percentage for the specified student in the current section
+    //returns -1 if the student was not found or the student did not have an assignment with the specified assignment name or there are no sections
+    public double getAssignmentScorePercent(String username, String assignmentName){
+        return -1;//FIXME
+    }
 
-    boolean markTardy(String username) //adds 1 to the students tardy count
+    //returns the average score as a percentage for the current section.
+    //only the student with the assignment assigned to them will be counted in the average.
+    //returns -1 if no student had an assignment with the specified assignment name  or there are no sections
+    public double getAssignmentScoreAvg(String assignmentName){
+        return -1;//FIXME
+    }
 
-    boolean markAbsent(String username) //adds 1 to the students absent count
+    //adds 1 to the specified student's tardy count.
+    //returns: true if successful, false if the student was not found in the current section  or there are no sections
+    public boolean markTardy(String username) {
+        return false;//FIXME
+    }
 
-    int getTardyCount(String username)  //returns number of times student was tardy
+    //adds 1 to the specified student's absent count.
+    //returns: true if successful, false if the student was not found in the current section  or there are no sections
+    public boolean markAbsent(String username){
+        return false; //FIXME
+    }
 
-    int getAbsentCount(String username) //returns number of times student was absent*/
+    //returns the student tardy count for the specified student, it returns -1 if the student was not found  or there are no sections
+    public int getTardyCount(String username){
+        return -1; //FIXME
+    }
 
+    //returns the student tardy count for the specified student, it returns -1 if the student was not found  or there are no sections
+    public int getAbsentCount(String username){
+        return -1; //FIXME
+    }
 
 
 }

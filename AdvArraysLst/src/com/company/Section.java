@@ -1,9 +1,12 @@
 package com.company;
 
+import java.util.ArrayList;
+
 /**
  * Created by mr6900 on 2/21/2019.
  */
 public class Section {
-    //list of students
-    //Section Name
+    ArrayList<String> students = new ArrayList<>();
+    ArrayList<String> sections = new ArrayList<>();
+    String sectionName;
 }
