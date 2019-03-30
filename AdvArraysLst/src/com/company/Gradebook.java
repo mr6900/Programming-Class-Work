@@ -21,11 +21,22 @@ public class Gradebook {
     // and sectionName is not already used , also need to set the currentSection to be the new section
     // Returns: true if it succeeds false if it fails.
     public boolean addSection(String sectionName){
-        return false; //FIXME
+        for(int i = 0; i < sections.size(); i++){
+            if(sectionName.equals(sections.get(i))){
+                sections.add(sectionName);
+                System.out.println("Section " + sections.get(i) + " was created");
+                return true;
+            }else{
+                System.out.println("Section is already created");
+            }
+        }
+           return false;
     }
-    //Creates a new student and adds the student to the currently active section
-    //returns: True if it succeeds, false if it fails(a student with the same username already exists or there are no sections)
-    public boolean addStudent(String firstName, String lastName, String username, long phoneNumber){
+
+    //sets the currently active section - needs to set the currently active section
+    //to the section with the given sectionName.
+    // Returns: true if it succeeds false if it fails(no section that matches that name).
+    public boolean changeSection(String sectionName){
         return false; //FIXME
     }
 
@@ -44,20 +55,9 @@ public class Gradebook {
     }
 
 
-    //creates a new assignment and adds it to the student specified by username.
-    //Returns true if it succeeds and false if the student is not found or the student already has an assignment with the
-    //same assignmentName or there are no sections
-    public boolean addAssignmentToStudent(String username, String assignmentName, int pointsPossible){
-        return false; //FIXME
-    }
 
-    //checks to make sure no student already has an assignment with the same assignment name first
-    //if there is no existing assignment it creates a new assignment and adds the assignment to all
-    // the students in the current section.
-    //returns: True if successful and false if at least one student has the same assignment name or there are no sections
-    public boolean addAssignmentToSection(String assignmentName, int pointsPossible){
-        return false;//FIXME
-    }
+
+
 
     //sets the pointsEarned property for the student specified in the current section for the assignment specified
     //returns: true if successful, false if the student is not found or the assignmentName is not found  or there are no sections.
