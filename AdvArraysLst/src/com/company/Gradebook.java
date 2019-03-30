@@ -7,6 +7,8 @@ import java.util.ArrayList;
  */
 public class Gradebook {
     //properties
+    Section section = new Section();
+    Student student = new Student();
     //list/array of sections
     ArrayList<String> sections = new ArrayList<>();
     //SectionName - String
@@ -37,12 +39,28 @@ public class Gradebook {
     //to the section with the given sectionName.
     // Returns: true if it succeeds false if it fails(no section that matches that name).
     public boolean changeSection(String sectionName){
+        for(int i = 0; i < sections.size(); i++){
+            if(sectionName.equals(sections.get(i))){
+                sectionName = sectionName;
+                return true;
+            }
+        }
+
         return false; //FIXME
     }
 
     //returns overall score (total points earned for all assignments/ total points possible) as a percentage for specified student
     //returns -1 if the student was not found or if the student did not have any assignments assigned or there are no sections.
     public double getOverallScore(String username) {
+        double overallScore = 0;
+        for(int i = 0; i < section.students.size(); i++){
+            if(!(!(username.equals(section.students.get(i)) && student.studentAssignments.size() > 0) && sections.size() <= 0)){
+                overallScore = 0;
+                return overallScore;
+            }else{
+
+            }
+        }
         return -1; //FIXME
     }
     //returns overall score as a percentage for the current section - (the average of each students overall score.)
@@ -51,12 +69,14 @@ public class Gradebook {
     //do not count students with no assignments assigned in the average.
     //returns -1 if there were no assignments in the section or there are no sections.
     public double getOverallScoreAvg(){
+        double overallScoreAvg = 0;
+        for(int i = 0; i < section.sectionAssignments.size(); i++){
+            if(sections.size() > 0 && section.sectionAssignments.size() > 0){
+                return overallScoreAvg;
+            }
+        }
         return -1; //FIXME
     }
-
-
-
-
 
 
     //sets the pointsEarned property for the student specified in the current section for the assignment specified
@@ -75,18 +95,35 @@ public class Gradebook {
     //only the student with the assignment assigned to them will be counted in the average.
     //returns -1 if no student had an assignment with the specified assignment name  or there are no sections
     public double getAssignmentScoreAvg(String assignmentName){
+        for(int i = 0; i < section.sectionAssignments.size(); i++){
+            if(sections.size() > 0 && assignmentName.equals(student.studentAssignments.get(i))){
+                if(assignmentName.equals(section.students.get(i))){
+
+                }
+            }
+        }
         return -1;//FIXME
     }
 
     //adds 1 to the specified student's tardy count.
     //returns: true if successful, false if the student was not found in the current section  or there are no sections
     public boolean markTardy(String username) {
+        for(int i = 0; i < section.students.size(); i++){
+            if(username.equals(section.students.get(i)) && sections.size() > 0){
+
+            }
+        }
         return false;//FIXME
     }
 
     //adds 1 to the specified student's absent count.
     //returns: true if successful, false if the student was not found in the current section  or there are no sections
     public boolean markAbsent(String username){
+        for(int i = 0; i < section.students.size(); i++){
+            if(username.equals(section.students.get(i)) && sections.size() > 0){
+
+            }
+        }
         return false; //FIXME
     }
 

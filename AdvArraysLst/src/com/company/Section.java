@@ -6,6 +6,8 @@ import java.util.ArrayList;
  * Created by mr6900 on 2/21/2019.
  */
 public class Section {
+    //Gradebook gradebook = new Gradebook();
+    Student student = new Student();
     ArrayList<String> students = new ArrayList<>();
     ArrayList<String> sectionAssignments = new ArrayList<>();
 
@@ -32,7 +34,15 @@ public class Section {
     // the students in the current section.
     //returns: True if successful and false if at least one student has the same assignment name or there are no sections
     public boolean addAssignmentToSection(String assignmentName, int pointsPossible){
-        sectionAssignments.add(assignmentName + pointsPossible);
+        for(int i = 0; i < sectionAssignments.size(); i++){
+            if(sectionAssignments.get(i) != student.studentAssignments.get(i)){
+                student.studentAssignments.add(assignmentName + pointsPossible);
+                return true;
+            }else{
+                System.out.println("A student already has this assignment");
+            }
+        }
+
         return false;//FIXME
     }
 }

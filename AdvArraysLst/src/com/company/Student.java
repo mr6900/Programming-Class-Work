@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 public class Student {
     Section section = new Section();
+    Gradebook gradebook = new Gradebook();
     String firstName;
     String lastName;
     String Username;
@@ -20,11 +21,14 @@ public class Student {
     //Returns true if it succeeds and false if the student is not found or the student already has an assignment with the
     //same assignmentName or there are no sections
     public boolean addAssignmentToStudent(String username, String assignmentName, int pointsPossible){
-
         for(int i = 0; i < studentAssignments.size(); i++){
-            if(username.equals(student.Get(i)));
+            if(username.equals(section.students.get(i)) || gradebook.sections.size() <= 0){
+                studentAssignments.add(assignmentName + pointsPossible);
+                return true;
+            }else{
+                System.out.println("You can not complete this function");
+            }
         }
-        studentAssignments.add(assignmentName + pointsPossible);
         return false; //FIXME
     }
 
