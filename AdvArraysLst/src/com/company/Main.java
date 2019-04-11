@@ -53,7 +53,7 @@ public class Main {
             else if(optionSelectIndex == 1){
                 System.out.println("Enter a section name");
                 String sectionName= console.nextLine();
-                retBool=gradebook.addSection(sectionName);
+                retBool = gradebook.addSection(sectionName);
             }
             else if(optionSelectIndex == 2){
                 System.out.println("Enter student first name:");

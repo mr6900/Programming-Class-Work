@@ -7,10 +7,10 @@ import java.util.ArrayList;
  */
 public class Gradebook {
     //properties
-    Section section = new Section();
-    Student student = new Student();
+    private Section section;
+    private Student student;
     //list/array of sections
-    ArrayList<String> sections = new ArrayList<>();
+    public static ArrayList<String> sections = new ArrayList<>();
     //SectionName - String
     String sectionName;
 
@@ -22,8 +22,8 @@ public class Gradebook {
     //creates a new section if there are not already 6 sections
     // and sectionName is not already used , also need to set the currentSection to be the new section
     // Returns: true if it succeeds false if it fails.
-    public boolean addSection(String sectionName){
-        for(int i = 0; i < sections.size(); i++){
+    public static boolean addSection(String sectionName){
+        for(int i = 0; i < 6; i++){
             if(sectionName.equals(sections.get(i))){
                 sections.add(sectionName);
                 System.out.println("Section " + sections.get(i) + " was created");

@@ -2,6 +2,7 @@ package com.company;
 
 import sun.org.mozilla.javascript.internal.ast.WhileLoop;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -25,6 +26,7 @@ public class Main {
                     while(true) {
                         System.out.println("Enter Username");
                         user = kboard.nextLine();
+
                          if(checkUser(user, username, true)==-1){
                              username.add(user);
                              break;
@@ -74,12 +76,13 @@ public class Main {
     }
 
 }
-    // INPUT:
-    //create account
-    //Enter Username:
-        //enters u
-    //enter password
-        //enters 9
+
+// INPUT:
+//create account
+//Enter Username:
+//enters u
+//enter password
+//enters 9
 
 
 // INPUT:
@@ -106,6 +109,93 @@ public class Main {
 // i
 //enter password
 //9
+//OUTPUT:
+//Wrong password
+
+
+///////////////////////////////////
+
+
+// INPUT:
+//create account
+//Enter Username:
+//enters u
+//enter password
+//enters 9
+
+
+// INPUT:
+//create account
+//Enter Username:
+//enters u
+//enter password
+//OUTPUT:
+//Username Taken
+
+
+///////////////////////////////////
+
+
+// INPUT:
+//create account
+//Enter Username:
+//enters u
+//enter password
+//enters 9
+
+
+// INPUT:
+//create account
+//Enter Username:
+//enters i
+//enter password
+//enters 8
+
+
+// INPUT:
+//login
+//enter username
+// p
+//enter password
+//9
+//OUTPUT:
+//Username not found
+
+
+/////////////////////////////////////
+
+// INPUT:
+//create account
+//Enter Username:
+//enters u
+//enter password
+//enters 9
+
+
+// INPUT:
+//create account
+//Enter Username:
+//enters i
+//enter password
+//enters 8
+
+
+// INPUT:
+//login
+//enter username
+// u
+//enter password
+//9
+//OUTPUT:
+//Welcome
+
+
+// INPUT:
+//login
+//enter username
+// i
+//enter password
+//8
 //OUTPUT:
 //Wrong password
 

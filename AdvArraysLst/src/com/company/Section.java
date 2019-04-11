@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class Section {
     //Gradebook gradebook = new Gradebook();
-    Student student = new Student();
+    private Student student;
     ArrayList<String> students = new ArrayList<>();
     ArrayList<String> sectionAssignments = new ArrayList<>();
 

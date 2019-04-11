@@ -6,8 +6,8 @@ import java.util.ArrayList;
  * Created by mr6900 on 2/21/2019.
  */
 public class Student {
-    Section section = new Section();
-    Gradebook gradebook = new Gradebook();
+    private Section section;
+    private Gradebook gradebook;
     String firstName;
     String lastName;
     String Username;
