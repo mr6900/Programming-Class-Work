@@ -23,16 +23,21 @@ public class Gradebook {
     // and sectionName is not already used , also need to set the currentSection to be the new section
     // Returns: true if it succeeds false if it fails.
     public static boolean addSection(String sectionName){
-        for(int i = 0; i < 6; i++){
-            if(sectionName.equals(sections.get(i))){
-                sections.add(sectionName);
-                System.out.println("Section " + sections.get(i) + " was created");
-                return true;
-            }else{
-                System.out.println("Section is already created");
+        //no sections -false
+        //already 6 section -false
+        //check if it exists
+        if(sections.size() <= 0){
+            for(int i = 0; i < sections.size(); i++) {
+                if (sectionName.equals(sections.get(i))) {
+                    return false;
+                } else {
+                    sections.add(sectionName);
+                    return true;
+                }
             }
         }
-           return false;
+        //ok so add
+          return true;
     }
 
     //sets the currently active section - needs to set the currently active section
