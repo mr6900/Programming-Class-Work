@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Gradebook gradebook = new Gradebook();
         Student student = new Student();
-        Section section = new Section();
+        Section section = new Section("");
         Assignment assignment = new Assignment();
         //set up optionsArray
         String[] options = new String [14];
@@ -63,7 +63,7 @@ public class Main {
                 System.out.println("Enter student username:");
                 String userName= console.nextLine();
                 long phoneNumber= getPhoneNumber();
-                retBool=section.addStudent(firstName,lastName,userName,phoneNumber);
+                retBool=gradebook.addStudent(firstName,lastName,userName,phoneNumber);
             }
             else if(optionSelectIndex == 3){
                 System.out.println("Enter student username:");
@@ -71,13 +71,13 @@ public class Main {
                 System.out.println("Enter assignment name:");
                 String assignmentName = console.nextLine();
                 int ptsPossible = getUInt();
-                retBool=student.addAssignmentToStudent(userName,assignmentName,ptsPossible);
+                retBool=gradebook.addAssignmentToStudent(userName,assignmentName,ptsPossible);
             }
             else if(optionSelectIndex == 4){
                 System.out.println("Enter assignment name:");
                 String assignmentName = console.nextLine();
                 int ptsPossible = getUInt();
-                retBool=section.addAssignmentToSection(assignmentName,ptsPossible);
+                retBool=gradebook.addAssignmentToSection(assignmentName,ptsPossible);
             }
             else if(optionSelectIndex == 5){
                 System.out.println("Enter student username:");

@@ -8,41 +8,39 @@ import java.util.ArrayList;
 public class Section {
     //Gradebook gradebook = new Gradebook();
     private Student student;
-    ArrayList<String> students = new ArrayList<>();
-    ArrayList<String> sectionAssignments = new ArrayList<>();
+    private String sectionName;
+    private ArrayList<Student> students;
+    ArrayList<Assignment> sectionAssignments;
 
+    public Section(String sectionName){
+        this.sectionName = sectionName;
+        students = new ArrayList<>();
+    }
 
+    public String getSectionName(){
+        return sectionName;
+    }
 
-    //Creates a new student and adds the student to the currently active section
-    //returns: True if it succeeds, false if it fails(a student with the same username already exists or there are no sections)
+    public int checkUsername(String username){
+        int index = 0;
+        while (index < students.size()){
+            if(username.equalsIgnoreCase(students.get(index).getUsername())){
+                return index;
+            }
+            index++;
+        }
+        return -1;
+    }
+
     public boolean addStudent(String firstName, String lastName, String userName, long phoneNumber){
-        for(int i = 0; i <= students.size(); i++){
-            if(userName.equals(students.get(i))){
-                students.add(firstName + lastName + userName + phoneNumber);
-                System.out.println("Student has been added");
-                return true;
-            }else{
-                System.out.println("Username has been taken");
-                System.exit(0);
-            }
+        int index = checkUsername(userName);
+        if(index != -1){
+            return false;
+        }else{
+            students.add();
+            return true;
         }
-        return false; //FIXME
     }
 
-    //checks to make sure no student already has an assignment with the same assignment name first
-    //if there is no existing assignment it creates a new assignment and adds the assignment to all
-    // the students in the current section.
-    //returns: True if successful and false if at least one student has the same assignment name or there are no sections
-    public boolean addAssignmentToSection(String assignmentName, int pointsPossible){
-        for(int i = 0; i < sectionAssignments.size(); i++){
-            if(sectionAssignments.get(i) != student.studentAssignments.get(i)){
-                student.studentAssignments.add(assignmentName + pointsPossible);
-                return true;
-            }else{
-                System.out.println("A student already has this assignment");
-            }
-        }
 
-        return false;//FIXME
-    }
 }

@@ -7,49 +7,78 @@ import java.util.ArrayList;
  */
 public class Gradebook {
     //properties
-    private Section section;
-    private Student student;
     //list/array of sections
-    public static ArrayList<String> sections = new ArrayList<>();
+    public static ArrayList<Section> sections;
+    Section section = new Section("");
     //SectionName - String
     String sectionName;
-
+    String currentSectionName;
 
     //methods
 
-
+    public Gradebook(){
+        sections = new ArrayList<>();
+        currentSectionName = "";
+    }
 
     //creates a new section if there are not already 6 sections
     // and sectionName is not already used , also need to set the currentSection to be the new section
     // Returns: true if it succeeds false if it fails.
     public static boolean addSection(String sectionName){
-        //no sections -false
         //already 6 section -false
-        //check if it exists
-        if(sections.size() <= 0){
-            for(int i = 0; i < sections.size(); i++) {
-                if (sectionName.equals(sections.get(i))) {
-                    return false;
-                } else {
-                    sections.add(sectionName);
-                    return true;
-                }
-            }
+        int index = checkSectionName(sectionName);
+        if(sections.size() >= 6){
+            return false;
+        }else if(index != -1){
+            return false;
+        }else{
+            sections.add(new Section(sectionName));
+            return true;
         }
         //ok so add
-          return true;
     }
 
+    public static int checkSectionName (String sectionName){
+        int index = 0;
+        while(index < sections.size()){
+            if(sectionName.equalsIgnoreCase(sections.get(index).getSectionName())){
+                return index;
+            }
+            index ++;
+        }
+        return -1;
+    }
     //sets the currently active section - needs to set the currently active section
     //to the section with the given sectionName.
     // Returns: true if it succeeds false if it fails(no section that matches that name).
     public boolean changeSection(String sectionName){
-        for(int i = 0; i < sections.size(); i++){
-            if(sectionName.equals(sections.get(i))){
-                sectionName = sectionName;
+        int index = checkSectionName(sectionName);
+        String name = sections.get(index).getSectionName();
+            if (index != -1) {
+                return false;
+            } else {
+                currentSectionName = name;
+                System.out.println("Section Switched To: " + name);
                 return true;
             }
+    }
+
+    //Creates a new student and adds the student to the currently active section
+    //returns: True if it succeeds, false if it fails(a student with the same username already exists or there are no sections)
+    public static boolean addStudent(String firstName, String lastName, String userName, long phoneNumber){
+        Section section = new Section("");
+        if(sections.size() <= -1){
+            System.out.println("Please add a section first");
+            return false;
+        }else {
+            return section.addStudent(firstName, lastName, userName, phoneNumber);
         }
+    }
+
+    //creates a new assignment and adds it to the student specified by username.
+    //Returns true if it succeeds and false if the student is not found or the student already has an assignment with the
+    //same assignmentName or there are no sections
+    public boolean addAssignmentToStudent(String username, String assignmentName, int pointsPossible){
 
         return false; //FIXME
     }
@@ -57,16 +86,18 @@ public class Gradebook {
     //returns overall score (total points earned for all assignments/ total points possible) as a percentage for specified student
     //returns -1 if the student was not found or if the student did not have any assignments assigned or there are no sections.
     public double getOverallScore(String username) {
-        double overallScore = 0;
-        for(int i = 0; i < section.students.size(); i++){
-            if(!(!(username.equals(section.students.get(i)) && student.studentAssignments.size() > 0) && sections.size() <= 0)){
-                overallScore = 0;
-                return overallScore;
-            }else{
 
-            }
-        }
         return -1; //FIXME
+    }
+
+    //checks to make sure no student already has an assignment with the same assignment name first
+    //if there is no existing assignment it creates a new assignment and adds the assignment to all
+    // the students in the current section.
+    //returns: True if successful and false if at least one student has the same assignment name or there are no sections
+    public boolean addAssignmentToSection(String assignmentName, int pointsPossible){
+
+
+        return false;//FIXME
     }
     //returns overall score as a percentage for the current section - (the average of each students overall score.)
     //Each student should have the same weight even if they have different number of points possible
@@ -100,35 +131,21 @@ public class Gradebook {
     //only the student with the assignment assigned to them will be counted in the average.
     //returns -1 if no student had an assignment with the specified assignment name  or there are no sections
     public double getAssignmentScoreAvg(String assignmentName){
-        for(int i = 0; i < section.sectionAssignments.size(); i++){
-            if(sections.size() > 0 && assignmentName.equals(student.studentAssignments.get(i))){
-                if(assignmentName.equals(section.students.get(i))){
 
-                }
-            }
-        }
         return -1;//FIXME
     }
 
     //adds 1 to the specified student's tardy count.
     //returns: true if successful, false if the student was not found in the current section  or there are no sections
     public boolean markTardy(String username) {
-        for(int i = 0; i < section.students.size(); i++){
-            if(username.equals(section.students.get(i)) && sections.size() > 0){
 
-            }
-        }
         return false;//FIXME
     }
 
     //adds 1 to the specified student's absent count.
     //returns: true if successful, false if the student was not found in the current section  or there are no sections
     public boolean markAbsent(String username){
-        for(int i = 0; i < section.students.size(); i++){
-            if(username.equals(section.students.get(i)) && sections.size() > 0){
 
-            }
-        }
         return false; //FIXME
     }
 
