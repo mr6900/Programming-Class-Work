@@ -37,7 +37,7 @@ public class Section {
         if(index != -1){
             return false;
         }else{
-            students.add();
+            students.add(new Student(firstName, lastName, userName, phoneNumber));
             return true;
         }
     }

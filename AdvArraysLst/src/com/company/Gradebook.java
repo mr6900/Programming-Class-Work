@@ -10,6 +10,7 @@ public class Gradebook {
     //list/array of sections
     public static ArrayList<Section> sections;
     Section section = new Section("");
+    Student student = new Student("", "", "",0000000000000);
     //SectionName - String
     String sectionName;
     String currentSectionName;
@@ -118,6 +119,12 @@ public class Gradebook {
     //sets the pointsEarned property for the student specified in the current section for the assignment specified
     //returns: true if successful, false if the student is not found or the assignmentName is not found  or there are no sections.
     public boolean setScore(String username, String assignmentName, int pointsEarned){
+        int index = section.checkUsername(username);
+        if(index == -1){
+            return false;
+        }else{
+
+        }
         return false;//FIXME
     }
 

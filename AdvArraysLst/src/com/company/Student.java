@@ -14,10 +14,11 @@ public class Student {
     ArrayList<Assignment> studentAssignments = new ArrayList<>();
 
 
-    public Student(){
-       firstName = firstName;
-       lastName = lastName;
-       Username = Username;
+    public Student(String firstname, String lastname, String username, long phonenumber){
+       firstName = firstname;
+       lastName = lastname;
+       Username = username;
+       phoneNumber = phonenumber;
 
     }
     public String getUsername(){
